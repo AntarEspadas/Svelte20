@@ -14,7 +14,7 @@ export default (options) => ({
         const outDir = options.outDir ?? "build"
         const author = options.author ?? ""
         /** @type {string} */
-        const index = options.mainHtmlFile ?? "index.html"
+        const index = options.mainHtmlFile ?? "sheet.html"
 
         const adapterStatic = AdapterStatic({ ...options.adapterStaticOptions, pages: tempDir, assets: tempDir })
 
@@ -67,11 +67,14 @@ export default (options) => ({
         fs.writeFileSync(path.join(outDir, "sheet.json"), JSON.stringify(sheetJson, undefined, 4))
 
         let indexHtml = fs.readFileSync(path.join(outDir, index)).toString()
-        const indexSplit = indexHtml.split('<script type="module"')
+        let cssPath = /<\s*link.*href="(.*\.css)".*>/g.exec(indexHtml)?.at(1)
+        let indexSplit = indexHtml.split('<script type="module"')
         indexSplit[indexSplit.length - 1] = ""
         indexHtml = indexSplit.join("")
+        // indexSplit = indexHtml.split("<!-- svelte head end -->")
+        // indexSplit[0] = ""
+        // indexHtml = indexSplit.join("")
         indexHtml = prettier.format(indexHtml, { filepath: index })
-        let cssPath = /<\s*link\s*rel="stylesheet"\s*href="(.*)"\s*>/g.exec(indexHtml)?.at(1)
         fs.writeFileSync(path.join(outDir, index), indexHtml)
         fs.renameSync(path.join(outDir, index), path.join(outDir, sheetJson.html))
 

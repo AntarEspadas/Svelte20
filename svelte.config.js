@@ -23,7 +23,7 @@ const config = {
 			template: production ? "src/app_prod.html" : "src/app_dev.html",
 			routes: "src/sheet"
 		},
-		routes: (path) => path === "index.svelte"
+		routes: (path) => ["sheet.svelte", "sheet.ts", "sheet.js"].indexOf(path) !== -1
 	}
 };
 

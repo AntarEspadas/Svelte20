@@ -1,10 +1,7 @@
-<!-- <div>
-	<h1>Example character sheet buildt with Svelte</h1>
-	<h3><u>https://svelte.dev/</u></h3>
+<script>
+	let language = 'PUG';
+</script>
 
-	<p>Developed by Naratna. For more information, visit</p>
-	<p><u>https://github.com/Naratna/svelte-roll20-template</u></p>
-</div> -->
 <template lang="pug">
 	div
 		h1 Example character sheet buildt with Svelte
@@ -14,6 +11,10 @@
 		p Developed by Naratna. For more information, visit
 		p
 			u https://github.com/Naratna/svelte-roll20-template
+
+		br
+		br
+		p This part of the sheet was written in {language}
 </template>
 
 <style lang="sass">
