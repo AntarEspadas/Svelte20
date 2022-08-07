@@ -67,15 +67,7 @@ export default () => [{
         }
         catch (e) {
             throw new Error('Webpack encountered an error')
-            // console.error('\x1b[31m', 'Webpack encountered an error', '\x1b[0m');
         }
-
-        // compiler.run((err, stats) => {
-        //     // if (err || stats.hasErrors) {
-        //     //     console.log("Webpack encountered an error\n", stats.compilation.errors)
-        //     // }
-        // })
-
 
         const context = attributes["context"] ?? "instance"
         workerCode[filename] = workerCode[filename] ?? {}
