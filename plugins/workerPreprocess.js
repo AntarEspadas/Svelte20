@@ -52,15 +52,23 @@ export default () => [{
 
         await new Promise((resolve, reject) => {
             compiler.run((err, stats) => {
-                if (err || stats.hasErrors) {
-                    console.log(err, stats.compilation.errors)
+                const error = err || stats.compilation.errors[0]
+                if (error) {
+                    throw new Error(error)
                 }
                 resolve()
             })
         })
 
         const output = options.output ?? "dist/main.js"
-        const newCode = memfs.readFileSync(output).toString()
+        let newCode = ""
+        try {
+            newCode = memfs.readFileSync(output).toString()
+        }
+        catch (e) {
+            throw new Error('Webpack encountered an error')
+            // console.error('\x1b[31m', 'Webpack encountered an error', '\x1b[0m');
+        }
 
         // compiler.run((err, stats) => {
         //     // if (err || stats.hasErrors) {
