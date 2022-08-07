@@ -40,3 +40,5 @@ declare function getTranslationLanguage(): string;
 declare function setDefaultToken(values: { [key: string]: string }): void;
 
 declare function on(event: string, callback: (eventInfo: EventInfo) => void): void;
+
+declare function getActiveCharacterId(): string | boolean;

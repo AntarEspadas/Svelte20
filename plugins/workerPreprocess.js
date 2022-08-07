@@ -5,6 +5,8 @@ import fs from 'fs';
 import path from 'path';
 import webpackConfig from '../webpack.config.js';
 
+const production = process.env.NODE_ENV == 'production';
+
 function createMemfsProxy() {
 	return new Proxy(createFsFromVolume(new Volume()), {
 		get(memfs, property) {
@@ -30,6 +32,7 @@ export default () => [
 		async script(svelteFile) {
 			const { filename, attributes, content } = svelteFile;
 			if (!attributes['sheetworker']) return { code: content };
+			if (!production) return { code: "" }
 
 			const entry = filename + '.ts';
 
@@ -48,7 +51,7 @@ export default () => [
 			compiler.inputFileSystem = memfs;
 			compiler.outputFileSystem = memfs;
 
-			await new Promise((resolve, reject) => {
+			await new Promise((resolve) => {
 				compiler.run((err, stats) => {
 					const error = err || stats.compilation.errors[0];
 					if (error) {

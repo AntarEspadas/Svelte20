@@ -11,5 +11,8 @@ export default {
 	},
 	resolve: {
 		extensions: ['.js', '.ts']
+	},
+	experiments: {
+		topLevelAwait: true
 	}
 };

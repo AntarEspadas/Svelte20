@@ -2,7 +2,7 @@
 	import Input from './Input.svelte';
 
 	export let name: string;
-	export let type: string = 'text';
+	export let type = 'text';
 </script>
 
 <div class="main">

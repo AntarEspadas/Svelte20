@@ -30,7 +30,9 @@ for (const file of files) {
 let instructions = '';
 try {
 	instructions = fs.readFileSync(path.join(__dirname, 'build/instructions.md')).toString();
-} catch {}
+} catch {
+	console.log('No instructions supplied');
+}
 
 const sheetJson = {
 	html: `${name}.html`,

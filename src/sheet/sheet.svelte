@@ -1,14 +1,14 @@
 <script context="module" lang="ts" sheetworker>
 	import { initTabs } from '../lib/Tabs/TabsWorker';
+	import { getAttrsAsync } from '../lib/roll20Async';
 	initTabs();
-	on('change:level', () => {
-		getAttrs(['level'], (attrs) => {
-			const level = +attrs.level;
-			if (isNaN(level)) return;
-			setAttrs({
-				hp_max: level * 2,
-				mana_max: Math.floor(level * 1.5)
-			});
+	on('change:level', async () => {
+		const attrs = await getAttrsAsync(['level']);
+		const level = +attrs.level;
+		if (isNaN(level)) return;
+		setAttrs({
+			hp_max: level * 2,
+			mana_max: Math.floor(level * 1.5)
 		});
 	});
 </script>
