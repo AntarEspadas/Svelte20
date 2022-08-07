@@ -3,6 +3,7 @@ const { webpack } = pkg
 import { createFsFromVolume, Volume } from "memfs"
 import fs from "fs"
 import path from "path"
+import webpackConfig from "../webpack.config.js"
 
 function createMemfsProxy() {
     return new Proxy(createFsFromVolume(new Volume()), {
@@ -24,22 +25,6 @@ function createMemfsProxy() {
 }
 
 
-/**@type {import("webpack").Configuration} */
-const webpackOptions = {
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                use: "ts-loader",
-                exclude: /node_modules/
-            }
-        ]
-    },
-    resolve: {
-        extensions: [".js", ".ts"]
-    }
-}
-
 /**@type {import("svelte-preprocess/dist/types").PreprocessorGroup} */
 export default () => [{
     /**@type {import("svelte-preprocess/dist/types").Preprocessor} */
@@ -58,7 +43,7 @@ export default () => [{
         /**@type {import("webpack").Configuration} */
         const options = {
             entry,
-            ...webpackOptions
+            ...webpackConfig
         }
 
         const compiler = webpack(options)
