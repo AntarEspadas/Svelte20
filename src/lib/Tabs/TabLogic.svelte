@@ -1,10 +1,3 @@
-<script context="module" lang="ts" sheetworker>
-	on('clicked:tabs_switch_button', (e) => {
-		setAttrs({ tabs_selected_index: e.htmlAttributes['value'] });
-		console.log('Clicked', e.htmlAttributes['value']);
-	});
-</script>
-
 <script lang="ts">
 	export let selectedIndex = '0';
 </script>

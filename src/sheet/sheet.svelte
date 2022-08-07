@@ -1,4 +1,6 @@
 <script context="module" lang="ts" sheetworker>
+	import { start } from '../lib/Tabs/TabsWorker';
+	start();
 	on('change:level', () => {
 		getAttrs(['level'], (attrs) => {
 			const level = +attrs.level;
