@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import TabLogic from './TabLogic.svelte';
 
 	export let tabs: string[];
 
@@ -22,7 +21,7 @@
 </script>
 
 <div>
-	<TabLogic {selectedIndex} />
+	<input type="hidden" class="tab-selector" name="attr_tabs_selected_index" value={selectedIndex} />
 	{#each tabs as tab, index}
 		<button
 			type="action"
@@ -38,5 +37,16 @@
 <style lang="scss">
 	div {
 		width: 100%;
+	}
+	:global(.charactersheet div.tabs_tab_panel) {
+		display: none;
+	}
+
+	@for $i from -1 through 9 {
+		:global(.charactersheet
+				input.tab-selector[name='attr_tabs_selected_index'][value='#{$i}']
+				~ div.tabs_tab_panel.tab_index_#{$i}) {
+			display: block;
+		}
 	}
 </style>
