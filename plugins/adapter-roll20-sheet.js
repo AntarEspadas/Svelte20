@@ -71,9 +71,9 @@ export default (options) => ({
         let indexSplit = indexHtml.split('<script type="module"')
         indexSplit[indexSplit.length - 1] = ""
         indexHtml = indexSplit.join("")
-        // indexSplit = indexHtml.split("<!-- svelte head end -->")
-        // indexSplit[0] = ""
-        // indexHtml = indexSplit.join("")
+        indexSplit = indexHtml.split("<!-- svelte head end -->")
+        indexSplit[0] = ""
+        indexHtml = indexSplit.join("")
         indexHtml = prettier.format(indexHtml, { filepath: index })
         fs.writeFileSync(path.join(outDir, index), indexHtml)
         fs.renameSync(path.join(outDir, index), path.join(outDir, sheetJson.html))
