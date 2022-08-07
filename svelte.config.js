@@ -1,9 +1,9 @@
 import adapter from './plugins/adapter-roll20-sheet.js';
 import preprocess from 'svelte-preprocess';
-import seqPreprocess from "svelte-sequential-preprocessor"
-import worker from "./plugins/workerPreprocess.js"
+import seqPreprocess from 'svelte-sequential-preprocessor';
+import worker from './plugins/workerPreprocess.js';
 
-const production = process.env.NODE_ENV == "production"
+const production = process.env.NODE_ENV == 'production';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,7 +12,7 @@ const config = {
 	preprocess: seqPreprocess([preprocess(), ...worker()]),
 
 	kit: {
-		adapter: adapter({ pages: "pages" }),
+		adapter: adapter({ pages: 'pages' }),
 		prerender: {
 			default: true
 		},
@@ -20,10 +20,10 @@ const config = {
 			hydrate: !production
 		},
 		files: {
-			template: production ? "src/app_prod.html" : "src/app_dev.html",
-			routes: "src/sheet"
+			template: production ? 'src/app_prod.html' : 'src/app_dev.html',
+			routes: 'src/sheet'
 		},
-		routes: (path) => ["sheet.svelte", "sheet.ts", "sheet.js"].indexOf(path) !== -1
+		routes: (path) => ['sheet.svelte', 'sheet.ts', 'sheet.js'].indexOf(path) !== -1
 	}
 };
 
