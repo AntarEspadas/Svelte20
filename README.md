@@ -2,15 +2,19 @@
 
 This template repository allows the creation of [custom roll20 sheets](https://wiki.roll20.net/Building_Character_Sheets) using the [Svelte](https://svelte.dev/) frontend framework
 
-### Advantages
+## Advantages
 
 Svelte is very easy to use, if you know HTML/CSS/JS, you can get started with Svelte right away.
+
 In addition, it is very easy to integrate with multiple languages, such as TypeScript, PUG, Sass, Less, CoffeeScript, etc. In particular, this template is pre-configured to work with TypeScript, Sass/Scss and PUG out of the box. Using these languages is, of course, optional, and you can keep using regular HTML/CSS/JS if you prefer.
+
 Svelte also allows you break up your code into multiple files, avoiding the monolithic HTML and CSS files that usually result from working without a framework
+
 Another Svelte feature that is personally one of my favorites, is component-scoped styles, that is, if you add a `style` tag to your markup and inside it use a selector that targets all `div` elements, only the `div`s defined inside that same file will be affected, rather than all `div`s globally
+
 This project also includes [Webpack](https://webpack.js.org/), which in this case allows the usage of `import` syntax inside sheet workers, removing the need to keep all your code in a single file and making it easier to use external libraries such as [The Aaron Sheet](https://github.com/shdwjk/TheAaronSheet)
 
-### Getting started
+## Getting started
 
 In order to use this template, you will need to have [Node.js](https://nodejs.org) installed on your computer
 
@@ -21,9 +25,9 @@ In order to use this template, you will need to have [Node.js](https://nodejs.or
 - You can run `npm run build:watch` in order to build the sheet automatically every time you make changes to any of the files.
 - You could also run `npm run dev` in order to test your sheet in a browser and reload changes automatically. However, any roll20 specific features won't work this way.
 
-### Usage
+## Usage
 
-##### HTML
+### HTML
 You can write regular HTML inside `.svelte` files, for instance, you could replace the contents of `sheet.svelte` with the following
 ```html
 <h1>My awesome character sheet</h1>
@@ -50,7 +54,7 @@ But let's say you're not so fond of HTML, let's say you prefer [PUG](https://pug
 ```
 And voilà, your code will be automatically converted to html after running `npm run build`
 
-##### CSS
+### CSS
 
 Let's say you have the following code
 
@@ -85,7 +89,7 @@ If you preferred, you could use `scss` or `sass` syntax, like s
 
 But you're not limited to those languages, while this project only includes vanilla css and scss/sass by default, you could, for instance, run `npm install --save-dev less` and start using `less` in your Svelte files. For more information, take a look at [svelte-preprocess](https://github.com/sveltejs/svelte-preprocess).
 
-##### JS (Sheet Workers)
+### JS (Sheet Workers)
 
 Let's say you have a button that looks like this
 ```html
@@ -137,7 +141,7 @@ Let's download the file `TheAaronSheet.js` and place it next to our `sheet.svelt
 
 The code will automatically be bundled together inside `build/sheet.html` after running `npm run build`
 
-##### Encapsulation
+### Encapsulation
 Even in a simple project, the size of the HTML will quickly spiral out of control. Thankfully, Svelte allows us to break up our code into multiple files.
 
 Say we have the following code inside our `sheet.svelte`
