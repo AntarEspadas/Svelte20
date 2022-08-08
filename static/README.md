@@ -2,4 +2,4 @@
 
 # Example character sheet made with [Svelte](https://svelte.dev)
 
-Developed by Naratna. For more information visit [the project's repositoy](https://github.com/Naratna/svelte-roll20-template)
+Developed by Naratna. For more information visit [the project's repositoy](https://github.com/Naratna/Svelte20)

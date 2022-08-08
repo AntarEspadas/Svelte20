@@ -10,7 +10,7 @@
 
 		p Developed by Naratna. For more information, visit
 		p
-			u https://github.com/Naratna/svelte-roll20-template
+			u https://github.com/Naratna/Svelte20
 
 		br
 		br

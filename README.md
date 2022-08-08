@@ -1,4 +1,4 @@
-# Roll20 Svelte template
+# Svelte20
 
 This template repository allows the creation of [custom roll20 sheets](https://wiki.roll20.net/Building_Character_Sheets) using the [Svelte](https://svelte.dev/) frontend framework
 
