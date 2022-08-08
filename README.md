@@ -8,20 +8,20 @@ Svelte is very easy to use, if you know HTML/CSS/JS, you can get started with Sv
 
 In addition, it is very easy to integrate with multiple languages, such as TypeScript, PUG, Sass, Less, CoffeeScript, etc. In particular, this template is pre-configured to work with TypeScript, Sass/Scss and PUG out of the box. Using these languages is, of course, optional, and you can keep using regular HTML/CSS/JS if you prefer.
 
-Svelte also allows you break up your code into multiple files, avoiding the monolithic HTML and CSS files that usually result from working without a framework
+Svelte also allows you to break up your code into multiple files, avoiding the monolithic HTML and CSS files that usually result from working without a framework.
 
-Another Svelte feature that is personally one of my favorites, is component-scoped styles, that is, if you add a `style` tag to your markup and inside it use a selector that targets all `div` elements, only the `div`s defined inside that same file will be affected, rather than all `div`s globally
+Another Svelte feature that is personally one of my favorites, is component-scoped styles, that is, if you add a `style` tag to your markup and inside it use a selector that targets all `div` elements, only the `div`s defined inside that same file will be affected, rather than all `div`s globally.
 
-This project also includes [Webpack](https://webpack.js.org/), which in this case allows the usage of `import` syntax inside sheet workers, removing the need to keep all your code in a single file and making it easier to use external libraries such as [The Aaron Sheet](https://github.com/shdwjk/TheAaronSheet)
+This project also includes [Webpack](https://webpack.js.org/), which in this case allows the usage of `import` syntax inside sheet workers, removing the need to keep all your code in a single file and making it easier to use external libraries such as [The Aaron Sheet](https://github.com/shdwjk/TheAaronSheet).
 
 ## Getting started
 
-In order to use this template, you will need to have [Node.js](https://nodejs.org) installed on your computer
+In order to use this template, you will need to have [Node.js](https://nodejs.org) installed on your computer.
 
-- Start by downloading this template either by cloning it with `git` or downloading it using the `code` button above.
+- Start by downloading this template, either by cloning it with `git` or downloading it using the `code` button above.
 - Open a terminal in the root directory of the template and run `npm install` to download all the dependencies.
 - Open the file `src/sheet/sheet.svelte` and edit it to your liking. You can use standard HTML/CSS.
-- In the terminal, run `npm run build`. This will create a directory named `build` and put all the sheet's files inside it (`sheet.html`, `sheet.css`, `sheet.json`, `README.md`, etc.).
+- In the terminal, run `npm run build`. This will create a directory named `build` and put all the sheet's files inside it (`sheet.html`, `sheet.css`, `sheet.json`, `README.md`, etc.)
 - You can run `npm run build:watch` in order to build the sheet automatically every time you make changes to any of the files.
 - You could also run `npm run dev` in order to test your sheet in a browser and reload changes automatically. However, any roll20 specific features won't work this way.
 
@@ -35,7 +35,7 @@ You can write regular HTML inside `.svelte` files, for instance, you could repla
 <button type="roll" value="/roll 1d20">Roll d20</button>
 ```
 
-This would do exactly what you would expect: a sheet with big letters that read "My awesome character sheet", followed by a text input that is linked to the "character_name" attribute and a "Roll d20" button that rolls `1d20` when clicked. Great!
+This would create exactly what you would expect: a sheet with big letters that read "My awesome character sheet", followed by a text input that is linked to the "character_name" attribute and a "Roll d20" button that rolls `1d20` when clicked. Great!
 
 Keep in mind, however, that the `{` and `}` characters have special meaning in Svelte, so if we wanted our button to roll `1d20 + strength modifier`, we would need to write it like so
 
@@ -76,7 +76,7 @@ Well, doing that is as simple as adding the following code to your file
 ```
 After running `npm run build` your styles will be moved into a separate `sheet.css` file
 
-If you preferred, you could use `scss` or `sass` syntax, like s
+If you preferred, you could use `scss` or `sass` syntax, like so
 
 ```html
 <h1>My awesome character sheet</h1>
@@ -156,25 +156,25 @@ This project includes a small library that makes it very simple to add tabs to a
 	import { Tab, TabButton, TabView } from '../lib/Tabs';
 </script>
 
-		<TabView>
-			<!-- This will create 3 tabs, named Tab 1, Tab 2 and Tab 3 -->
-			<TabButton>Tab 1</TabButton>
-			<TabButton>Tab 2</TabButton>
-			<TabButton>Tab 3</TabButton>
+<TabView>
+	<!-- This will create 3 tabs, named Tab 1, Tab 2 and Tab 3 -->
+	<TabButton>Tab 1</TabButton>
+	<TabButton>Tab 2</TabButton>
+	<TabButton>Tab 3</TabButton>
 
-			<Tab>
-				<h1>Content for the first tab goes here</h1>
-			</Tab>
-			<Tab>
-				<h1>Content for the second tab goes here</h1>
-			</Tab>
-			<Tab>
-				<h1>Content for the third tab goes here</h1>
-			</Tab>
-		</TabView>
+	<Tab>
+		<h1>Content for the first tab goes here</h1>
+	</Tab>
+	<Tab>
+		<h1>Content for the second tab goes here</h1>
+	</Tab>
+	<Tab>
+		<h1>Content for the third tab goes here</h1>
+	</Tab>
+</TabView>
 ```
 Note that you need to import `lib/Tabs/TabsWorker` inside your sheet worker for the tabs to actually work.
-Also keep in mind that the import statement for the tabs themselves must be inside a regular script, not a sheet worker
+Also keep in mind that the import statement for the tabs themselves must be inside a regular script, not a sheet worker.
 
 ### Encapsulation
 Even in a simple project, the size of the HTML will quickly spiral out of control. Thankfully, Svelte allows us to break up our code into multiple files.
@@ -216,7 +216,7 @@ Say we have the following code inside our `sheet.svelte`
 	}
 </style>
 ```
-This code will look something like this inside the sheet
+The resulting sheet would look something like this
 
 ![image](./docs/Example1.png)
 
@@ -268,7 +268,7 @@ Now, we need to import this component inside our main `sheet.svelte` file, like 
 ```
 Note that this script tag doesn't have a `sheetworker` or a `context="module"` attribute
 
-Now, we can have many labeledinputs by doing this
+Now, we can have many labeled inputs by doing this
 
 ```HTML
 <!-- sheet.svelte -->
