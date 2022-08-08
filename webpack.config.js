@@ -12,7 +12,7 @@ export default {
 	resolve: {
 		extensions: ['.js', '.ts']
 	},
-	experiments: {
-		topLevelAwait: true
-	}
+	optimization: {
+		minimize: false,
+	},
 };
