@@ -1,7 +1,8 @@
 <script context="module" lang="ts" sheetworker>
-	import { initTabs } from '../lib/Tabs/TabsWorker';
+	import '../lib/Tabs/TabsWorker';
 	import { getAttrsAsync } from '../lib/roll20Async';
-	initTabs();
+	import TAS from '../lib/TheAaronSheet';
+	TAS.log('Hello World!');
 	on('change:level', async () => {
 		const attrs = await getAttrsAsync(['level']);
 		const level = +attrs.level;
@@ -14,7 +15,7 @@
 </script>
 
 <script>
-	import { Tab, TabView } from '$lib/Tabs';
+	import { Tab, TabView } from '../lib/Tabs';
 	import ExamplePage1 from './Example/ExamplePage1.svelte';
 	import ExamplePage2 from './Example/ExamplePage2.svelte';
 	import About from './Example/About.svelte';
