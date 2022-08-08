@@ -38,7 +38,9 @@
 		display: none;
 	}
 
-	@for $i from -1 through 9 {
+	// if, for whatever reason, you need more than 10 tabs in your sheet,
+	// you can edit this @for statement
+	@for $i from 0 through 9 {
 		:global(.charactersheet
 				input.tab-selector[name='attr_tabs_selected_index'][value='#{$i}']
 				~ div.tabs_tab_panel.tab_index_#{$i}) {

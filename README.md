@@ -141,6 +141,41 @@ Let's download the file `TheAaronSheet.js` and place it next to our `sheet.svelt
 
 The code will automatically be bundled together inside `build/sheet.html` after running `npm run build`
 
+### Tabs
+
+This project includes a small library that makes it very simple to add tabs to a character sheet
+
+```HTML
+<script context="module" sheetworker>
+	//Tabs won't work inside roll20 without this import
+	import '../lib/Tabs/TabsWorker';
+</script>
+
+<script>
+	//This import cannot be inside the sheet worker
+	import { Tab, TabButton, TabView } from '../lib/Tabs';
+</script>
+
+		<TabView>
+			<!-- This will create 3 tabs, named Tab 1, Tab 2 and Tab 3 -->
+			<TabButton>Tab 1</TabButton>
+			<TabButton>Tab 2</TabButton>
+			<TabButton>Tab 3</TabButton>
+
+			<Tab>
+				<h1>Content for the first tab goes here</h1>
+			</Tab>
+			<Tab>
+				<h1>Content for the second tab goes here</h1>
+			</Tab>
+			<Tab>
+				<h1>Content for the third tab goes here</h1>
+			</Tab>
+		</TabView>
+```
+Note that you need to import `lib/Tabs/TabsWorker` inside your sheet worker for the tabs to actually work.
+Also keep in mind that the import statement for the tabs themselves must be inside a regular script, not a sheet worker
+
 ### Encapsulation
 Even in a simple project, the size of the HTML will quickly spiral out of control. Thankfully, Svelte allows us to break up our code into multiple files.
 
