@@ -15,7 +15,7 @@
 </script>
 
 <script>
-	import { Tab, TabView } from '../lib/Tabs';
+	import { Tab, TabButton, TabView } from '../lib/Tabs';
 	import ExamplePage1 from './Example/ExamplePage1.svelte';
 	import ExamplePage2 from './Example/ExamplePage2.svelte';
 	import About from './Example/About.svelte';
@@ -23,7 +23,10 @@
 
 <div>
 	<div>
-		<TabView tabs={['Character info', 'Notes', 'About']}>
+		<TabView>
+			<TabButton>Character</TabButton>
+			<TabButton>Notes</TabButton>
+			<TabButton>About</TabButton>
 			<Tab>
 				<ExamplePage1 />
 			</Tab>

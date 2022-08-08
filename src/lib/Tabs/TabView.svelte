@@ -3,33 +3,29 @@
 
 	export interface Context {
 		getTabIndex: () => number;
+		getTabButtonIndex: () => number;
+		currentIndex: Writable<string>;
 	}
 </script>
 
 <script lang="ts">
 	import { setContext } from 'svelte';
+	import { writable, type Writable } from 'svelte/store';
 
-	export let tabs: string[];
-
+	let tabButtonIndex = 0;
 	let tabIndex = 0;
 
-	let selectedIndex = '0';
+	let currentIndex = writable('0');
 
 	setContext<Context>(key, {
-		getTabIndex: () => tabIndex++
+		getTabIndex: () => tabIndex++,
+		getTabButtonIndex: () => tabButtonIndex++,
+		currentIndex
 	});
 </script>
 
 <div>
-	<input type="hidden" class="tab-selector" name="attr_tabs_selected_index" value={selectedIndex} />
-	{#each tabs as tab, index}
-		<button
-			type="action"
-			name="act_tabs_switch_button"
-			value={index}
-			on:click={() => (selectedIndex = String(index))}>{tab}</button
-		>
-	{/each}
+	<input type="hidden" class="tab-selector" name="attr_tabs_selected_index" value={$currentIndex} />
 
 	<slot />
 </div>
