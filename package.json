@@ -39,8 +39,5 @@
 		"vite": "^3.0.0",
 		"webpack": "^5.74.0"
 	},
-	"type": "module",
-	"dependencies": {
-		"es6-promisify": "^7.0.0"
-	}
+	"type": "module"
 }
