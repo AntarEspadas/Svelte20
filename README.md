@@ -39,7 +39,7 @@ This would create exactly what you would expect: a sheet with big letters that r
 
 Keep in mind, however, that the `{` and `}` characters have special meaning in Svelte, so if we wanted our button to roll `1d20 + strength modifier`, we would need to write it like so
 
-```
+```jsx
 <button type="action" value={"/roll 1d20+@{strength_mod}"}>Roll d20</button>
 ```
 But let's say you're not so fond of HTML, let's say you prefer [PUG](https://pugjs.org/api/getting-started.html). Well, you could replace the previous code with
